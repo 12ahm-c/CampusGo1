@@ -88,15 +88,18 @@ useEffect(() => {
   return (
     <div className={`map-page ${darkMode ? "dark-mode" : ""}`}>
       <MapContainer center={center} zoom={15} style={{ height: "100vh", width: "100%" }}>
-        <TileLayer
-          url={
-            darkMode
-              ? "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
-              : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          }
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-        />
-
+<TileLayer
+  url={
+    darkMode
+      ? `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${import.meta.env.VITE_STADIA_API_KEY}`
+      : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  }
+  attribution={
+    darkMode
+      ? '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+      : '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+  }
+/>
         {buses.map((bus) => (
           <Marker
             key={bus.bus_id}
