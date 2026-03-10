@@ -90,15 +90,15 @@ useEffect(() => {
       <MapContainer center={center} zoom={15} style={{ height: "100vh", width: "100%" }}>
 <TileLayer
   url={
-    darkMode
-      ? `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${import.meta.env.VITE_STADIA_API_KEY}`
-      : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  }
-  attribution={
-    darkMode
-      ? '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-      : '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-  }
+darkMode
+  ? "https://stamen-tiles.a.ssl.fastly.net/toner-dark/{z}/{x}/{y}.png"
+  : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"  
+}
+attribution={
+  darkMode
+    ? 'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+    : '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+}
 />
         {buses.map((bus) => (
           <Marker
