@@ -1,0 +1,17 @@
+/* تضمن أن كل الصفحة تمتد للعرض والارتفاع كامل */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* حاوية الصفحة بالكامل */
+.page-container {
+  display: flex;
+  justify-content: center; /* يضع المحتوى في الوسط أفقياً */
+  align-items: center;     /* يضع المحتوى في الوسط عمودياً */
+  height: 100%;
+  width: 100%;
+  background-color: #f5f7fb; /* يمكن تغييره */
+}

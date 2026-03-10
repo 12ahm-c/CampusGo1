@@ -1,0 +1,126 @@
+/* Toggle.css */
+
+/* CSS Variables for Toggle (inherits from Profile.css) */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.toggle-container:hover {
+    background: hsla(220, 20%, 50%, 0.05);
+    /* Subtle hover */
+}
+
+.toggle-container.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.toggle-label-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.toggle-icon {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Sun/Moon Icon (Dark Mode Toggle) */
+.toggle-container:first-child .toggle-icon {
+    background: var(--icon-sun-bg);
+    color: var(--icon-sun-color);
+}
+
+/* Bell Icon (Notifications Toggle) */
+.toggle-container:nth-child(3) .toggle-icon {
+    background: var(--icon-bell-bg);
+    color: var(--icon-bell-color);
+}
+
+.toggle-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+[data-theme="dark"] .toggle-label,
+.dark-mode .toggle-label {
+    color: hsl(220, 15%, 95%);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.toggle-switch:disabled {
+    cursor: not-allowed;
+}
+
+.toggle-track {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 28px;
+    background: hsl(220, 15%, 88%);
+    border-radius: 999px;
+    transition: background 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Dark Mode Track - Inactive */
+[data-theme="dark"] .toggle-track,
+.dark-mode .toggle-track {
+    background: hsl(220, 15%, 35%);
+}
+
+.toggle-switch.active .toggle-track {
+    background: linear-gradient(135deg, hsl(260, 65%, 55%), hsl(280, 60%, 50%));
+}
+
+.toggle-knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-switch.active .toggle-knob {
+    transform: translateX(22px);
+}
+
+.toggle-switch:focus-visible .toggle-track {
+    outline: 2px solid hsl(260, 65%, 55%);
+    outline-offset: 2px;
+}
+
+.toggle-switch:active .toggle-knob {
+    width: 26px;
+}
+
+.toggle-switch.active:active .toggle-knob {
+    transform: translateX(18px);
+}

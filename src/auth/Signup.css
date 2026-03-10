@@ -1,0 +1,161 @@
+/* Signup.css */
+
+/* الحاوية الرئيسية - نفس تدرج الألوان لتوحيد الهوية */
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+/* بطاقة التسجيل */
+.signup-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px; /* زوايا أنعم قليلاً */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 420px; /* أعرض قليلاً لاستيعاب بيانات أكثر */
+  text-align: center;
+  animation: fadeIn 0.6s ease-out; /* حركة ظهور ناعمة */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* النصوص العلوية */
+.signup-header {
+  margin-bottom: 30px;
+}
+
+.signup-title {
+  color: #2d3436;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.signup-subtitle {
+  color: #b2bec3; /* لون أفتح قليلاً لإعطاء شعور بالهدوء */
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* الحقول المدخلة */
+.input-group {
+  margin-bottom: 18px;
+}
+
+.signup-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #f1f3f5;
+  border-radius: 12px;
+  font-size: 15px;
+  background-color: #f8f9fa; /* خلفية باهتة جداً للحقول */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.signup-input:focus {
+  border-color: #00b894; /* أخضر مريح للعين يرمز "للبناء" أو "البداية" */
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 184, 148, 0.1);
+}
+
+/* صندوق الخطأ */
+.signup-error-box {
+  background-color: #fff5f5;
+  color: #e17055;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  border-left: 4px solid #fab1a0; /* علامة جانبية للتمييز */
+  text-align: left;
+}
+
+/* زر التسجيل */
+.signup-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #00b894; /* نستخدم الأخضر هنا لتمييز "الإنشاء" عن "الدخول" */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 184, 148, 0.2);
+  margin-top: 10px;
+}
+
+.signup-button:hover {
+  background-color: #00a887;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 184, 148, 0.3);
+}
+
+.signup-button:active {
+  transform: translateY(0);
+}
+
+.signup-button:disabled {
+  background-color: #dfe6e9;
+  color: #b2bec3;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* التذييل */
+.signup-footer {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #636e72;
+}
+
+.signup-link {
+  color: #00b894;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: color 0.2s;
+}
+
+.signup-link:hover {
+  color: #00a887;
+  text-decoration: underline;
+}
+
+/* حالة التحميل */
+.loading {
+  position: relative;
+  color: transparent !important;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -10px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

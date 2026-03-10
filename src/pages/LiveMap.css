@@ -1,0 +1,104 @@
+/* ===========================
+   LiveMap.css - تصميم صفحة الخريطة
+=========================== */
+
+/* الصفحة الرئيسية */
+.map-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #f5f7fa; /* نفس خلفية الـ dashboard */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ETA Container - لوحة ETA العائمة */
+.eta-container {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: #1e293b; /* نفس لون sidebar */
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eta-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* نص ETA */
+.eta-text {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* زر عرض المسار */
+.route-button {
+  background: #2563eb; /* نفس لون الأزرار في dashboard */
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.route-button:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* تخصيص Popups */
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  background: #1e293b;
+  color: #fff;
+  font-weight: 500;
+}
+
+.leaflet-popup-tip {
+  background: #1e293b;
+}
+
+/* Marker icons (تأكد من حجم الأيقونات مناسب) */
+.leaflet-marker-icon {
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Polyline خطوط المسار */
+.leaflet-interactive {
+  stroke-width: 4px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .eta-container {
+    top: auto;
+    bottom: 1rem;
+    right: 50%;
+    transform: translateX(50%);
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .eta-text {
+    font-size: 0.9rem;
+  }
+
+  .route-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}

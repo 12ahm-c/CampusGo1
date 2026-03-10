@@ -1,0 +1,24 @@
+/* Login.css */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center; /* أفقيًا في الوسط */
+  align-items: center;     /* عموديًا في الوسط */
+  height: 100%;
+  width: 100%;
+  background-color: #f5f7fb;
+}
+
+.form-wrapper {
+  width: 320px;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}

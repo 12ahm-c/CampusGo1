@@ -1,0 +1,619 @@
+/* Profile.css - University Shuttle App Profile Settings */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+/* CSS Variables - Design Tokens */
+:root {
+    /* Colors */
+    --primary-color: hsl(255, 75%, 60%);
+    --primary-gradient: linear-gradient(135deg, hsl(255, 75%, 60%), hsl(275, 70%, 55%));
+    --accent-color: hsl(152, 70%, 45%);
+    --destructive-color: hsl(0, 70%, 60%);
+
+    /* Icon Colors */
+    --icon-sun-bg: hsl(35, 95%, 94%);
+    --icon-sun-color: hsl(35, 90%, 55%);
+    --icon-moon-bg: hsl(220, 20%, 25%);
+    --icon-moon-color: hsl(45, 90%, 60%);
+
+    --icon-bell-bg: hsl(0, 90%, 96%);
+    --icon-bell-color: hsl(0, 70%, 60%);
+
+    --icon-settings-bg: hsl(220, 15%, 96%);
+    --icon-settings-color: hsl(220, 15%, 50%);
+
+    --icon-signout-bg: transparent;
+    /* No background in design for sign out icon, or maybe faint red? */
+    --icon-signout-color: hsl(0, 70%, 60%);
+
+    /* Backgrounds */
+    --bg-light: hsl(220, 25%, 98%);
+    --card-bg: hsl(0, 0%, 100%);
+
+    /* Text */
+    --text-primary: hsl(222, 47%, 15%);
+    --text-secondary: hsl(220, 15%, 55%);
+    --text-muted: hsl(220, 15%, 65%);
+
+    /* Borders & Dividers */
+    --border-color: hsl(220, 15%, 94%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+
+    /* Border Radius */
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    --radius-pill: 999px;
+}
+
+/* Dark Mode Variables - Based on Image 1 */
+[data-theme="dark"],
+.dark-mode {
+    --primary-color: hsl(255, 80%, 70%);
+    /* Lighter purple for dark mode */
+    --primary-gradient: linear-gradient(135deg, hsl(255, 80%, 70%), hsl(275, 75%, 65%));
+
+    /* Backgrounds - Navy Blue Theme */
+    --bg-light: hsl(222, 47%, 11%);
+    /* Deep Navy Background */
+    --card-bg: hsl(217, 33%, 17%);
+    /* Slightly lighter Navy Card */
+
+    /* Text - Dark Mode */
+    --text-primary: hsl(0, 0%, 100%);
+    --text-secondary: hsl(220, 20%, 80%);
+    --text-muted: hsl(220, 20%, 65%);
+
+    /* Borders & Dividers - Dark Mode */
+    --border-color: hsl(217, 33%, 25%);
+
+    /* Icon Colors - Dark Mode */
+    --icon-sun-bg: hsl(220, 20%, 25%);
+    --icon-sun-color: hsl(45, 90%, 60%);
+    /* Moon Yellow */
+
+    --icon-bell-bg: hsl(217, 33%, 25%);
+    /* Darker bg for icon */
+    --icon-bell-color: hsl(0, 70%, 65%);
+
+    --icon-settings-bg: hsl(217, 33%, 25%);
+    --icon-settings-color: hsl(220, 20%, 70%);
+
+    --destructive-color: hsl(0, 70%, 65%);
+}
+
+/* Page Container */
+.profile-page {
+    min-height: 100vh;
+    background: var(--bg-light);
+    font-family: 'Outfit', sans-serif;
+    padding-bottom: 100px;
+    transition: background 0.3s ease;
+}
+
+.profile-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Page Header */
+.profile-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: -0.5px;
+    transition: color 0.3s ease;
+}
+
+/* Student Profile Card */
+.student-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+[data-theme="dark"] .student-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.avatar-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.avatar-ring {
+    padding: 3px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+}
+
+.avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--card-bg);
+    /* Inner border to separate from ring */
+    display: block;
+}
+
+.avatar-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-light);
+    color: var(--primary-color);
+    font-size: 32px;
+    font-weight: 700;
+}
+
+[data-theme="dark"] .avatar-placeholder {
+    background: hsla(255, 75%, 60%, 0.2);
+    color: hsl(255, 80%, 85%);
+}
+
+.online-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    background: var(--accent-color);
+    border: 2px solid var(--card-bg);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.student-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.student-name {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 16px 0px;
+    transition: color 0.3s ease;
+}
+
+.student-id-bus {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: hsla(152, 70%, 50%, 0.1);
+    /* Transparent green bg */
+    border: 1px solid hsla(152, 70%, 45%, 0.2);
+    color: var(--accent-color);
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px hsla(152, 70%, 50%, 0.2);
+}
+
+/* Settings Sections */
+.settings-section {
+    margin-bottom: 28px;
+}
+
+.section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin: 0 0 12px var(--spacing-xs);
+    text-transform: uppercase;
+}
+
+.settings-group {
+    background: var(--card-bg);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+[data-theme="dark"] .settings-group {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle border for dark mode cards */
+}
+
+.setting-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 0 var(--spacing-lg);
+    opacity: 0.6;
+}
+
+/* Settings Items */
+.settings-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px var(--spacing-lg);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.settings-item:hover {
+    background: hsla(220, 20%, 50%, 0.03);
+}
+
+.settings-item:active {
+    background: hsla(220, 20%, 50%, 0.06);
+}
+
+.settings-item-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.settings-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Icon Colors */
+.settings-item .settings-icon {
+    background: var(--icon-settings-bg);
+    color: var(--icon-settings-color);
+}
+
+/* Sign Out Icon Style */
+.settings-item.destructive .settings-icon {
+    background: transparent;
+    color: var(--destructive-color);
+    padding: 0;
+    width: 24px;
+    /* Smaller logic container as it has no bg */
+    justify-content: flex-start;
+}
+
+/* Dark Mode Icon Specifics - Handled by CSS Variables mostly */
+[data-theme="dark"] .settings-item .settings-icon {
+    background: var(--icon-settings-bg);
+    /* For Sun/Moon icon, specific rules in Toggle.css but useful here if reused */
+}
+
+.settings-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.settings-item.destructive .settings-label {
+    color: var(--destructive-color);
+}
+
+.chevron {
+    font-size: 18px;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.red-chevron {
+    color: var(--destructive-color);
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.app-version {
+    font-size: 12px;
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .profile-container {
+        padding: 40px;
+    }
+
+    .page-title {
+        font-size: 32px;
+    }
+}
+
+/* Modal Styles - Restored & Adapted */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    border-radius: var(--radius-xl);
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: var(--shadow-md);
+    animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+[data-theme="dark"] .modal-content {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    background: var(--bg-light);
+    color: var(--text-primary);
+    outline: none;
+    transition: all 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px hsla(255, 75%, 60%, 0.1);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 12px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.cancel-btn {
+    background-color: var(--bg-light);
+    color: var(--text-secondary);
+}
+
+.cancel-btn:hover {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.save-btn {
+    background: var(--primary-gradient);
+    color: white;
+    box-shadow: 0 4px 12px hsla(255, 75%, 60%, 0.2);
+}
+
+.save-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px hsla(255, 75%, 60%, 0.3);
+}
+
+/* Change Password Button */
+.change-password-btn {
+    width: 100%;
+    padding: 12px;
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-bottom: 20px;
+}
+
+[data-theme="dark"] .change-password-btn {
+    background: #374151;
+    color: #cbd5e1;
+}
+
+.change-password-btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+[data-theme="dark"] .change-password-btn:hover {
+    background: #4b5563;
+    color: white;
+}
+
+.password-fields {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Name Error Box */
+.name-error-box {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    animation: slideDown 0.3s ease-out;
+}
+
+[data-theme="dark"] .name-error-box {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.08));
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.error-message {
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+[data-theme="dark"] .error-message {
+    color: #f87171;
+}
+
+.suggestion-text {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.suggested-name {
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+    transition: all 0.2s ease;
+}
+
+.suggested-name:hover {
+    color: hsl(255, 75%, 50%);
+    text-decoration-style: solid;
+}
+
+[data-theme="dark"] .suggested-name {
+    color: hsl(255, 80%, 75%);
+}
+
+[data-theme="dark"] .suggested-name:hover {
+    color: hsl(255, 80%, 85%);
+}
+
+/* Password Error Box (same styling as name error) */
+.password-error-box {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    animation: slideDown 0.3s ease-out;
+}
+
+[data-theme="dark"] .password-error-box {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.08));
+    border-color: rgba(239, 68, 68, 0.4);
+}

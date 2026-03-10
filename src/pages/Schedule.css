@@ -1,0 +1,184 @@
+/* Schedule.css - Simple Grid Layout */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.schedule-container {
+  max-width: 100%;
+  padding: 15px;
+}
+
+.schedule-title {
+  text-align: center;
+  color: #333;
+  margin: 15px 0 25px 0;
+  font-size: 24px;
+}
+
+/* Grid container - 3 cards per row */
+.buses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 15px; /* Space between cards */
+  width: 100%;
+}
+
+/* Small card style */
+.schedule-card {
+  background: white;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
+  min-height: 180px; /* Fixed height for consistency */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Card content */
+.schedule-card p {
+  margin: 8px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.schedule-card p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* Status tag */
+.status-tag {
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+}
+
+/* Button styling */
+.route-button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.route-button:hover {
+  background-color: #3367d6;
+}
+
+.route-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* No data message */
+.no-data {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  padding: 30px;
+  background: white;
+  border-radius: 6px;
+  grid-column: 1 / -1;
+  margin: 20px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .buses-grid {
+    grid-template-columns: repeat(3, 1fr); /* Still 3 cards even on small screens */
+    gap: 10px;
+  }
+  
+  .schedule-card {
+    padding: 12px;
+    min-height: 160px;
+  }
+  
+  .schedule-card p {
+    font-size: 13px;
+    margin: 6px 0;
+  }
+  
+  .schedule-title {
+    font-size: 20px;
+    margin: 10px 0 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .buses-grid {
+    grid-template-columns: repeat(3, 1fr); /* Still 3 cards on very small screens */
+    gap: 8px;
+  }
+  
+  .schedule-card {
+    padding: 10px;
+    min-height: 150px;
+  }
+  
+  .schedule-card p {
+    font-size: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .status-tag {
+    margin-top: 3px;
+  }
+  
+  .route-button {
+    width: 100%;
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+/* =========================
+   DARK MODE - SCHEDULE
+========================= */
+
+.schedule-container.dark-mode {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.schedule-container.dark-mode .schedule-title {
+  color: #ffffff;
+}
+
+.schedule-container.dark-mode .schedule-card {
+  background-color: #1e293b;
+  color: #f1f5f9;
+}
+
+.schedule-container.dark-mode .route-button {
+  background-color: #2563eb;
+  color: white;
+}
+
+.schedule-container.dark-mode .no-data {
+  color: #94a3b8;
+}

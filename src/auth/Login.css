@@ -1,0 +1,126 @@
+/* Login.css */
+
+/* إعدادات عامة للخلفية لجعلها مريحة */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* تدرج لوني هادئ جداً */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+/* بطاقة تسجيل الدخول */
+.login-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px; /* زوايا منحنية تعطي شعوراً بالراحة */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* ظل خفيف جداً وغير مخيف */
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* الهيدر والنصوص */
+.login-header {
+  margin-bottom: 30px;
+}
+
+.login-title {
+  color: #2d3436;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  color: #636e72;
+  font-size: 14px;
+}
+
+/* الحقول المدخلة */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #edf2f7;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box; /* لضمان عدم خروج الحقل عن الحاوية */
+}
+
+.login-input:focus {
+  border-color: #74b9ff; /* لون أزرق هادئ عند التركيز */
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(116, 185, 255, 0.1);
+}
+
+/* تنبيه الخطأ */
+.login-error-box {
+  background-color: #fff5f5;
+  color: #c53030;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  border: 1px solid #feb2b2;
+}
+
+/* الزر الأساسي */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #0984e3; /* أزرق صريح واحترافي */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(9, 132, 227, 0.2);
+}
+
+.login-button:hover {
+  background-color: #0773c5;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(9, 132, 227, 0.3);
+}
+
+.login-button:disabled {
+  background-color: #b2bec3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* تذييل الصفحة */
+.login-footer {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #636e72;
+}
+
+.login-link {
+  color: #0984e3;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* تأثير بسيط عند التحميل */
+.loading {
+  opacity: 0.8;
+  position: relative;
+}
