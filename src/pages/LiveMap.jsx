@@ -91,17 +91,16 @@ useEffect(() => {
 <TileLayer
   url={
     darkMode
-      ? "https://stamen-tiles.a.ssl.fastly.net/toner-dark/{z}/{x}/{y}.png"
+      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
       : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   }
   attribution={
     darkMode
-      ? 'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-      : '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+      ? '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>'
+      : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }
-  subdomains={darkMode ? ["a","b","c","d"] : undefined}
-/>
-        {buses.map((bus) => (
+  subdomains={["a","b","c","d"]}
+/>        {buses.map((bus) => (
           <Marker
             key={bus.bus_id}
             position={[bus.current_lat, bus.current_lng]}
