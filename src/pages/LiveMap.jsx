@@ -88,10 +88,10 @@ useEffect(() => {
   return (
     <div className={`map-page ${darkMode ? "dark-mode" : ""}`}>
       <MapContainer center={center} zoom={15} style={{ height: "100vh", width: "100%" }}>
-<TileLayer
+        <TileLayer
   url={
     darkMode
-      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+      ? "https://cartodb-basemaps-a.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
       : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   }
   attribution={
@@ -100,7 +100,8 @@ useEffect(() => {
       : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }
   subdomains={["a","b","c","d"]}
-/>        {buses.map((bus) => (
+/>
+    {buses.map((bus) => (
           <Marker
             key={bus.bus_id}
             position={[bus.current_lat, bus.current_lng]}
