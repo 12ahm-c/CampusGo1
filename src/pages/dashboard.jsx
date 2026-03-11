@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { NavLink, Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { MdHome, MdMap, MdSchedule, MdPerson, MdMenu, MdClose, MdLogout } from "react-icons/md";
 import "./Dashboard.css";
+import busLogo from "../assets/logo.png"; // المسار حسب مكان الملف
 
 import Home from "./Home";
 import LiveMap from "./LiveMap";
@@ -34,8 +35,14 @@ export default function Dashboard() {
       <aside className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div className="sidebar-header">
           <div className="logo-section">
-            <div className="logo-box">🚌</div>
-            <h1 className="logo-text">Campus<span>Go</span></h1>
+<div className="logo-box">
+  <img 
+    src={busLogo} 
+    alt="Bus Logo" 
+    style={{ width: "40px", height: "40px" }} 
+  />
+</div>
+           <h1 className="logo-text">Campus<span>Go</span></h1>
           </div>
         </div>
 
