@@ -77,6 +77,28 @@ const [loading, setLoading] = useState(true);
     const [passwordError, setPasswordError] = useState(false);
 
     useEffect(() => {
+  const storedUser = localStorage.getItem("user");
+
+  if (storedUser) {
+    const user = JSON.parse(storedUser);
+
+    setStudent({
+      username: user.username,
+      bus_id: user.bus_id,
+      isOnline: true
+    });
+
+    setEditForm(prev => ({
+      ...prev,
+      username: user.username,
+      bus_id: user.bus_id
+    }));
+  }
+
+  setLoading(false);
+}, []);
+
+    useEffect(() => {
         fetchProfile();
     }, []);
 
@@ -93,16 +115,16 @@ const res = await fetch(`${API_URL_PROFILE}`, {
       setStudent(prev => ({
         ...prev,
         username: data.username,
-        bus_id: data.bus_id,
+bus_id: data.bus_id || data.bus || '',
         studentId: data.bus_id,
       }));
 
       setPushNotifications(data.notifications_enabled ?? true);
 
-      setEditForm({
-        username: data.username,
-        bus_id: data.bus_id || "",
-        currentPassword: "",
+setEditForm({
+  username: data.username,
+  bus_id: data.bus_id || data.bus || "",
+          currentPassword: "",
         newPassword: "",
         confirmPassword: "",
       });
@@ -392,13 +414,12 @@ setEditForm({
                                     </div>
                                     <div className="form-group">
                                         <label>Bus ID</label>
-                                        <input
-                                            type="text"
-                                            name="bus_id"
-                                            value={editForm.bus_id}
-                                            onChange={handleInputChange}
-                                        />
-                                    </div>
+<input
+  type="text"
+  name="bus_id"
+  value={editForm.bus_id}
+  readOnly
+/>                                    </div>
                                     <button
                                         type="button"
                                         className="change-password-btn"
